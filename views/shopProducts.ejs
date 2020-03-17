@@ -1,0 +1,39 @@
+<% include layout %>
+
+<div class="container">
+    <header>
+        <div class="jumbotron">
+            <h1>Products </h1>
+               <a type="button" href="/shops" class="btn btn-lg btn-primary">Shops</a>
+
+</div>
+
+<div class="container">
+
+        <div class="row">
+          <% shops.products.forEach(function(Product){ %>
+                <div class="col-sm-12 col-md-6 col-lg-3" style="border:1px blue solid">
+                     <img style="width: 100%;
+                                height: 250px;
+                                margin: 20px auto; " src="<%=Product.image%>">
+
+                      <p><%=Product.name%></p>
+                      <p>
+                        Qnty:<%=Product.quantity%>
+                      </p>
+                      <p>
+                        price:<%=Product.price%>
+                      </p>
+
+
+                    <a href="/Products/<%= Product._id %>" class="btn btn-primary btn-lg">details</a>
+
+                </div>
+            <%});%>
+        </div>
+</div>
+
+
+
+
+<% include footer %>

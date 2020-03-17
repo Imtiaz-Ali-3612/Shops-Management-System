@@ -1,0 +1,20 @@
+<% include layout.ejs %>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1><%= Products.name %> </p>
+    </div>
+</div>
+<div class="container1">
+    <div style=" text-align:center">
+
+        <img src="<%=Products.image%>" class="Img1" >
+        <p><%= Products.name %></p>
+        <% if(user.isShopkeeper != 'Shopkeeper') {%>
+        <a href='/users/cart/<%=Products._id%>/newItem' class='btn'>Add To Cart </a>
+        <%}%>
+    </div>
+</div>
+
+
+<% include footer %>

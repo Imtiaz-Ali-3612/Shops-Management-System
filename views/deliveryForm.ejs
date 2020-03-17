@@ -1,0 +1,15 @@
+<%include layout%>
+
+<h1>
+  Delivery Form</h1>
+
+<form class="" action="/deliveryService/<%=id%>" method="post">
+    <label >Input requirements !  </label>
+    <input type="text" name="address" placeholder="Address">
+    <input type="text" name="mobile" placeholder="mobile number">
+    <label for="">Once order is placed cannot be cancelled !</label> I Agree < type="checkbox" required >
+
+    <input type="submit" class="btn btn-primary" value="Confirm">
+</form>
+
+<%include footer %>

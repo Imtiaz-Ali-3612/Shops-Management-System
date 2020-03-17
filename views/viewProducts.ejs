@@ -1,0 +1,126 @@
+<%include layout %>
+<script type="text/javascript" src="/javascripts/jquery.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+
+
+<div class="container" style="margin:3em auto">
+    <header>
+        <div class="jumbotron">
+            <h1>Products </h1>
+      
+
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav" style="font-size:2em;">
+                      <li class="nav-item dropdown">
+                            <form class="form-inline" action="/" method="GET">
+                              <div class="form-group">
+
+
+                            <select name="search" >
+
+                              <option>cosmetics</option>
+
+                              <option>Electronic Devices</option>
+                              <option>Electronic Accessories</option>
+                              <option>TV & Home Appliances</option>
+                              <option>Healthy And Beuty<soption>
+                              <option>Baby And Toys</option>
+                              <option>Groceries And Pets</option>
+                              <option>Home And Lifestyle</option>
+                              <option>Women's Fashion</option>
+                              <option>Men's Fashion</option>
+                              <option>Watches And Accessories</option>
+                              <option>Sports And Outdoor</option>
+                              </div>
+                              <input type="submit" class="btn btn-default" value="search">
+
+                            </form>
+                      </li>
+                      <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Select Price Range
+                            </a>
+                            <div style="font-size:1em;" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <a class="dropdown-item" href="#">1-100</a>
+                              <a class="dropdown-item" href="#">101-1000</a>
+                              <a class="dropdown-item" href="#">1001-2000</a>
+                              <a class="dropdown-item" href="#">2001-5000</a>
+                              <a class="dropdown-item" href="#">Other</a>
+8
+                      </li> -->
+
+                      <li class="nav-item">
+                        <!-- <div style="align:right;">
+                            <form class="form-inline"  action="/" method="GET">
+                                 <input type="text" name="from" placeholder="FROM">  <b> - </b>   <input type="text" name="to" placeholder="TO">
+                                 <button type="button" class='btn btn-primary' name="submit">submit</button>
+                            </form>
+                        </div> -->
+
+                      </li>
+                      <li>
+                        <form class="form-inline" action="/shops" method="GET">
+                          <div class="form-group">
+                            <input type="text" id="search" name="search" placeholder='Search Shop' class='form-control'>
+                           <input type="submit" class="btn btn-default" value="search">
+                          </div>
+                        </form>
+                          <!-- <button id="location">Use My Currant Location</button> -->
+                          <!-- <a href="/getshops">Get Shops</a> -->
+                      </li>
+                </ul>
+              </div>
+            </nav>
+
+
+
+
+             </div>
+    </header>
+
+</div>
+
+<div class="container" >
+
+        <div class="row">
+             <% Products.forEach(function(Product){%>
+                <div style="margin:1em auto" class="col-sm-12 col-md-6 col-lg-3" style="border:1px blue solid">
+                     <img style="width: 100%;
+                                height: 250px;
+                                 " src="<%=Product.image%>">
+
+                      <p><%=Product.name%></p>
+                      <p>
+                        Qnty:<%=Product.quantity%>
+                      </p>
+                      <p>
+                        price:<%=Product.price%>
+                      </p>
+
+                    <p>
+                        <% if(Product.deliveryService=='available'){%>
+                          <li class="nav-item"><a href="/deliveryService/<%=Product._id%>" >Deliver Me Now</a></li>
+                        <%}%>
+                    </p>
+
+
+                    <a href="/Products/<%= Product._id %>" class="btn btn-primary btn-lg">details</a>
+
+                </div>
+            <%});%>
+        </div>
+</div>
+<script type="text/javascript" src="/javascripts/map.js">
+
+</script>
+<script type="text/javascript" src="/javascripts/socketio.js">
+
+</script>
+
+<% include footer %>

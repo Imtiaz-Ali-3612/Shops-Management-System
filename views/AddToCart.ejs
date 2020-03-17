@@ -1,0 +1,19 @@
+<% include layout %>
+
+<form class="form-method" action="/users/cart/<%=product._id%>/newItem" method="post">
+
+  <!-- <input type="text"  name="productId" value="<%=product._id%>">
+  <input type="text"  name="Name"     value="<%=product.name%>">
+  <input type="text"  name="Image"     value="<%=product.image%>">
+  <input type="text"  name="Price"     value="<%=product.price%>"> -->
+
+
+
+  <input type="text" name="Qnty" placeholder="Enter Quantity">
+  <input type="submit" value="Add to Cart " >
+</form>
+
+
+
+
+<% include footer %>

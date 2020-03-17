@@ -1,0 +1,22 @@
+<% include layout.ejs %>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1><%= shops.name %> </p>
+    </div>
+</div>
+<div class="container1">
+    <div style=" text-align:center">
+
+        <img src="<%=shops.image%>" class="Img1" >
+        <p><%= shops.name %></p>
+        <p>
+          Here Details about shop will GO ....
+        </p>
+        <a href='/shops/details/<%=shops._id%>' class='btn'>Visit Items</a>
+
+    </div>
+</div>
+
+
+<% include footer %>

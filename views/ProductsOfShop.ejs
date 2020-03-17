@@ -1,0 +1,64 @@
+<% include layout %>
+
+<div class="container">
+    <header>
+        <div class="jumbotron">
+            <h1><%=shops.name%></h1>
+               <a type="button" href="/" class="btn btn-lg btn-primary"> Go Home</a>
+
+</div>
+
+<div class="container">
+
+        <div class="row">
+          <% if(shops!=null) {shops.products.forEach(function(Product){ %>
+                <div class="col-sm-12 col-md-6 col-lg-3" style="border:1px blue solid">
+                     <img style="width: 100%;
+                                height: 250px;
+                                margin: 20px auto; " src="<%=Product.image%>">
+
+                      <p><%=Product.name%></p>
+                      <p>
+                        Qnty:<%=Product.quantity%>
+                      </p>
+                      <p>
+                        price:<%=Product.price%>
+                      </p>
+
+                    <p></p>
+
+
+                    <a href="/Products/<%= Product._id%>" class="btn btn-primary btn-lg">details</a>
+                    <form class="form-inline" action="/shops/<%=Product._id %>/deleteProduct?_method=DELETE" method="POST">
+                      <button id="destroy" class="btn btn-danger btn-lg">delete</button>
+                    </form>
+                    <!-- <form class="" action="/UpdateForm/<%=Product._id%>" method="post"> -->
+                      <a href="/updateProductForm/<%=Product._id%>" class="btn btn-primary btn-lg">update</a>
+
+                      <%if(Product.deliveryService=='available') {%>
+                      <form action="/shop/deliveryService/<%=Product._id%>/not available" method="post">
+                        <button type="submit" class="btn btn-danger btn-lg">Remove Delivery from this Product </button>
+
+                      </form>
+                      <%}else {%>
+                        <form action="/shop/deliveryService/<%=Product._id%>/available" method="post">
+                          <button type="submit" class="btn btn-primary btn-lg">Add Delivery TO this Product</button>
+
+                        </form>
+                      <%}%>
+
+                    <!-- </form> -->
+
+                </div>
+            <%});}%>
+        </div>
+</div>
+<script type="text/javascript" src="ProductOfShop.js">
+
+
+
+</script>
+
+
+
+<% include footer %>

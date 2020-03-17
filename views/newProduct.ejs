@@ -1,0 +1,57 @@
+<% include layout %>
+<div class="container">
+
+<form class="form-group" action="/AddProducts" method="post">
+  <div class="form-row">
+        <div class="col">
+          <input type="text" class="form-control"  name="name" placeholder="Product name" required>
+        </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <select class="form-control" id="exampleFormControlSelect1" name="typeOfProduct" placeholder="Product Type">
+
+        <option>cosmetics</option>
+
+        <option>Electronic Devices</option>
+        <option>Electronic Accessories</option>
+        <option>TV & Home Appliances</option>
+        <option>Healthy And Beuty<soption>
+        <option>Baby And Toys</option>
+        <option>Groceries And Pets</option>
+        <option>Home And Lifestyle</option>
+        <option>Women's Fashion</option>
+        <option>Men's Fashion</option>
+        <option>Watches And Accessories</option>
+        <option>Sports And Outdoor</option>
+
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" name="image" placeholder="Product Image Url"required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" name="price" placeholder="Product Price" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" name="quantity" placeholder="Product Quantity" required>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <input type="text" class="form-control" name="details" placeholder="Product details" required>
+    </div>
+  </div>
+  <input type="submit" class="btn btn-primary" value="Add Product">
+</form>
+
+</div>
+
+
+
+<% include footer %>

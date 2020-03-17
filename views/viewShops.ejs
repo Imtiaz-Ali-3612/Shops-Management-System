@@ -1,0 +1,38 @@
+<% include layout %>
+<div class="container">
+    <header>
+        <div class="jumbotron">
+            <h1>Shops </h1>
+               <form class="form-inline" action="/shops" method="GET">
+                 <div class="form-group">
+                   <input type="text" name="search" placeholder='Search Shop' class='form-control'>
+                  <input type="submit" class="btn btn-default" value="search">
+                 </div>
+               </form>
+        </div>
+    </header>
+
+</div>
+
+<div class="container">
+
+        <div class="row">
+             <% shops.forEach(function(shop){%>
+                <div class="col-sm-12 col-md-6 col-lg-3" style="border:1px blue solid">
+                     <img style="width: 100%;
+                                height: 250px;
+                                margin: 20px auto; " src="<%=shop.image%>">
+
+                      <p><%=shop.name%></p>
+                      <p>
+                        Address:<%=shop.address%>
+                      </p>
+                      <a href="/shops/<%=shop._id %>" class="btn btn-primary btn-lg">details</a>
+                </div>
+            <%});%>
+
+        </div>
+</div>
+
+
+<% include footer %>
